@@ -232,14 +232,17 @@ class RpiDeviceDIO(Observed):
         # self.logger.debug('Exclusive button {0}'.format(btn))
 
     def switch_btn_color_to_enabled(self, btn):
+        self.set_btn_color_enabled(btn)
+
+    def switch_btn_color_to_disabled(self, btn):
+        self.set_btn_color_disabled(btn)
+
+    def set_btn_color_enabled(self, btn):
         try:
             led = self.rpi_leds[btn]
             led.on()
         except IndexError:
             pass
-
-    def set_btn_color_enabled(self, btn):
-        pass
 
     def set_btn_color_disabled(self, btn):
         try:
@@ -251,8 +254,7 @@ class RpiDeviceDIO(Observed):
     def set_btn_color_active(self, btn):
         pass
 
-    # выключить подсветку кнопок
-    def poweroff_buttons(self):
+    def set_btn_range_colors(self, buttons_colors_1, color_1, buttons_colors_2, color_2):
         pass
 
     # запереть замок
@@ -310,3 +312,10 @@ class RpiDeviceDIO(Observed):
         if n == 0:
             return 7  # Гарантированно имеем 7 единичных битов.
         return n  # Случай, когда в числе от 1 до 6 единичных битов.
+
+    # выключить подсветку кнопок
+    def poweron_buttons(self):
+        pass
+
+    def poweroff_buttons(self):
+        pass
