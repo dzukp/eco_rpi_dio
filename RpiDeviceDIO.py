@@ -241,6 +241,7 @@ class RpiDeviceDIO(Observed):
         try:
             led = self.rpi_leds[btn]
             led.on()
+            print(f'led {btn} on')
         except IndexError:
             pass
 
@@ -248,6 +249,7 @@ class RpiDeviceDIO(Observed):
         try:
             led = self.rpi_leds[btn]
             led.off()
+            print(f'led {btn} off')
         except IndexError:
             pass
 
