@@ -2,7 +2,7 @@ from threading import Thread, Event
 import time
 
 # Задежка в опросе (сек)
-_THREAD_DELAY = 0.02
+_THREAD_DELAY = 1.0
 
 
 class ThreadDIO(Thread):
@@ -27,6 +27,7 @@ class ThreadDIO(Thread):
         while not need_stop:
             for dev in self.__devices:
                 dev.poll()
+                print('DI:', dev.buttons)
             need_stop = self.event_stop.wait(_THREAD_DELAY)
         print('ThreadDIO finish')
 

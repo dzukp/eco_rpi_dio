@@ -296,7 +296,6 @@ class RpiDeviceDIO(Observed):
         for i, button in enumerate(self.rpi_buttons):
             if button.is_pressed:
                 buttons |= (1 << i)
-        print('dio_read', buttons)
         return Result(status=1, di=0, buttons=buttons)
 
     def CountBits16(self, n):
