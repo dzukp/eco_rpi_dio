@@ -77,7 +77,7 @@ class RpiDeviceDIO(Observed):
         self.btn_previose_color = self.btncollors.copy()
         self.btn_off = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-        self.rpi_leds = [LED(26), LED(29)]
+        self.rpi_leds = [LED(26), LED(20)]
         self.rpi_buttons = [Button(19), Button(16)]
 
         self.running = False
